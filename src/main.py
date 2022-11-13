@@ -74,7 +74,7 @@ async def start(ctx: interactions.CommandContext, difficulty: str = "medium"):
                     interactions.Choice(name="Medium", value="medium"),
                     interactions.Choice(name="Hard", value="hard")
                 ]
-        ) 
+        )
     ]
 )
 async def test(ctx: interactions.CommandContext, difficulty: str = "medium"):
@@ -180,13 +180,15 @@ async def on_message_create(message: interactions.Message):
 
     if msg == game.word:
         game.delete()
-        # TODO: Embed
+
         phrase = getRandomPhrase(message.author)
 
         embed = generateEmbed(phrase, dict_words_accents.get(
             game.word), message.author.avatar_url)
 
-        return await channel.send(embeds=embed)
+        await channel.send(embeds=embed)
+
+        return
 
     if game.current >= game.limit:
         embed = generateEmbed(f"Partie terminée ! Le mot était: {game.word}", dict_words_accents.get(
