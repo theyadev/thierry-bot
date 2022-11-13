@@ -113,7 +113,7 @@ def generateEmbed(phrase, word, avatar_url):
     thumbnail = None
 
     if avatar_url:
-        thumbnail = interactions.EmbedThumbnail(url=avatar_url)
+        thumbnail = interactions.EmbedImageStruct(url=avatar_url)
 
     embed = interactions.Embed(
         title=phrase,
