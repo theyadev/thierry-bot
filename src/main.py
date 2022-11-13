@@ -94,7 +94,7 @@ async def test(ctx: interactions.CommandContext, difficulty: str = "medium"):
 )
 async def stop(ctx: interactions.CommandContext):
     if not doesGameExist(games, ctx.channel_id):
-        await ctx.send("Il n'y a pas de partie en cours")
+        await ctx.send("Il n'y a pas de partie en cours", ephemeral=True)
         return
 
     game = games.get(ctx.channel_id)
