@@ -46,7 +46,7 @@ def getRandomPhrase(user):
 
 def scrapDefinition(url: str) -> list[str]:
     # Liste des bouts de phrases ou l'on doit refaire un scrapping pour trouver la bonne définition
-    redos = ["pluriel de", "personne du", "du verbe"]
+    redos = ["pluriel de", "personne du", "du verbe", "féminin singulier de"]
 
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
